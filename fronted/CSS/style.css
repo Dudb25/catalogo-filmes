@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: black;
+    height: 70px;
+    color: white;
+    border-bottom: 3px solid rgb(154, 30, 30);
+    display: flex;
+    align-items: center;
+}
+
+header > h1 {
+    margin-left: 30px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 30px max-content auto;
+}
+
+main > #formulario {
+    display: grid;
+    grid-column: 2;
+    background: red;
+    width: 300px;
+}
+
+main > #formulario > #aside-top {
+    background: brown;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+main > #formulario > #aside-top > #arrow-hide {
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+}
+
+main > aside > form {
+    display: grid;
+    grid-template-rows: repeat(7, auto);
+
+}

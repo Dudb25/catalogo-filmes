@@ -4,32 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Filmes</title>
+
+    <link rel="stylesheet" href="/fronted/CSS/style.css">
 </head>
 <body>
     <header>
         <h1>Catálogo de Filmes</h1>
     </header>
     <main>
-        <aside>
+        <aside id="formulario">
             <div id="aside-top">
                 <h2>Adicionar / Editar</h2>
-                <img src="src/icons/arrow-hide.svg" alt="Seta para abrir e fechar a barra lateral.">
+                <img src="src/icons/arrow-hide.svg" alt="Seta para abrir e fechar a barra lateral." id="arrow-hide">
             </div>
             <form action="">
-                <label for="titulo">Título do filme</label>
-                <input type="text" id="titulo" class="titulo">
+                <div class="item-form">
+                    <label for="titulo">Título do filme</label>
+                    <input type="text" id="titulo" class="titulo">
+                </div>
 
-                <label for="genero">Gênero</label>
-                <input type="text" id="genero" class="genero">
+                <div class="item-form">
+                    <label for="genero">Gênero</label>
+                    <input type="text" id="genero" class="genero">
+                </div>
 
-                <label for="status">Status</label>
-                <input type="text" id="status" class="status">
+                <div class="item-form">
+                    <label for="status">Status</label>
+                    <input type="text" id="status" class="status">
+                </div>
 
-                <label for="nota">Nota</label>
-                <input type="text" id="nota" class="nota">
-
-                <label for="url-poster">Url do poster</label>
-                <input type="text" id="url-poster" class="url-poster">
+                <div class="item-form">
+                    <label for="nota">Nota</label>
+                    <input type="number" id="nota" class="nota">
+                </div>
 
                 <button type="submit">
                     <span>
@@ -39,8 +46,13 @@
                 </button>
             </form>
         </aside>
-        <section id="secao-de-filmes">
-            
+        <section id="sessao-de-filmes">
+            <article id="container-cards">
+                <p>Titulo genero status nota</p>
+                <p>Titulo genero status nota</p>
+                <p>Titulo genero status nota</p>
+                <p>Titulo genero status nota</p>
+            </article>
         </section>
     </main>
 </body>
