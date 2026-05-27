@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from database import get_db
+from backend.database import get_db
 from backend import models, schemas
-from schemas import FilmeCreate, FilmeResponse
+from backend.schemas import FilmeCreate, FilmeResponse
 
 router = APIRouter(prefix="/filmes", tags=["Filmes"])
 
