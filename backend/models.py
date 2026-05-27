@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Float
 from backend.database import Base
 from pydantic import BaseModel
 
@@ -9,4 +9,5 @@ class Filme(Base):
     titulo = Column(String, nullable=False)
     genero = Column(String, nullable=True)
     ano = Column(Integer, nullable=True)
-    descricao = Column(String, nullable=True)
+    status = Column(String, nullable=True)
+    nota = Column(Float, nullable=True)
