@@ -2,13 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+body {
+    background: #0F0000;
 }
 
 header {
-    background: black;
+    background: #0F0000;
     height: 70px;
-    color: white;
-    border-bottom: 3px solid rgb(154, 30, 30);
+    color: #F6E9E9;
+    border-bottom: 1px solid #F6E9E9;
     display: flex;
     align-items: center;
 }
@@ -20,17 +25,22 @@ header > h1 {
 main {
     display: grid;
     grid-template-columns: 30px max-content auto;
+    grid-template-rows: 50px auto;
 }
 
 main > #formulario {
     display: grid;
     grid-column: 2;
-    background: red;
+    grid-row: 2;
+    background: #0F0000;
+    border: 1px solid #F6E9E9;
+    border-radius: 5px;
+    padding: 20px;
     width: 300px;
 }
 
 main > #formulario > #aside-top {
-    background: brown;
+    color: #F6E9E9;
     display: grid;
     grid-template-columns: auto auto;
 }
@@ -43,6 +53,78 @@ main > #formulario > #aside-top > #arrow-hide {
 
 main > aside > form {
     display: grid;
-    grid-template-rows: repeat(7, auto);
+    grid-template-rows: 20px repeat(6, auto) 20px;
+    row-gap: 25px;
 
+}
+
+main > aside > form > .item-form {
+    display: flex;
+    flex-direction: column;
+}
+
+main > aside > form > .item-form > label {
+    color: #F6E9E9;
+}
+
+main > aside > form > .item-form > input {
+    height: 30px;
+    max-width: 250px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 3px;
+    background-color: #F6E9E9;
+}
+
+main > aside > form > .item-form#titulo {
+    grid-row: 2;
+}
+
+main > aside > form > .item-form#genero {
+    grid-row: 3;
+}
+
+main > aside > form > .item-form#status {
+    grid-row: 4;
+}
+
+main > aside > form > .item-form#nota {
+    grid-row: 5;
+}
+
+main > aside > form > button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-row: 6;
+    height: 30px;
+    max-width: 250px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 3px;
+    background-color: #F6E9E9;
+}
+
+main > aside > form > button > span{
+    margin-right: 10px;
+}
+
+section#sessao-de-filmes {
+    grid-column: 3;
+    grid-row: 2;
+    color: #F6E9E9;
+    padding-left: 50px;
+}
+
+section#sessao-de-filmes article {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+}
+
+section#sessao-de-filmes article > p {
+    padding: 8px 10px;
+    border: 1px solid #F6E9E9;
 }
