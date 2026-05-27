@@ -17,7 +17,7 @@ $("form").on("submit", function(event) {
     console.log(filme);
 
     $.ajax({
-        url: "http://localhost:8000/filmes",
+        url: "http://127.0.0.1:8000/docs#/Filmes/criar_filme_filmes__post",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(filme),
