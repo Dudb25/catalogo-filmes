@@ -1,8 +1,7 @@
-from fastapi import FastAPI, Depends, HTTPException
-from sqlalchemy.orm import Session
-from models import Filme
-from database import SessionLocal, engine, Base
-from routers import users, filmes
+from fastapi import FastAPI
+from backend.database import Base, engine
+from backend.routers import users, filmes
+from backend.database import SessionLocal
 
 app = FastAPI()
 
