@@ -4,7 +4,8 @@ class FilmeBase(BaseModel):
     titulo: str
     genero: str | None = None
     ano: int | None = None
-    descricao: str | None = None
+    status: str | None = None
+    nota: float | None = None
 
 class FilmeCreate(FilmeBase):
     pass
