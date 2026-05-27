@@ -10,6 +10,8 @@ class Filme(Base):
     genero = Column(String, nullable=True)
     ano = Column(Integer, nullable=True)
     descricao = Column(String, nullable=True)
+    status = Column(String, nullable=True)
+    nota = Column(Float, nullable=True)
 
     class Usuario(Base):
         __tablename__ = "usuarios"
