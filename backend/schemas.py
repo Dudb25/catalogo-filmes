@@ -6,11 +6,11 @@ class FilmeBase(BaseModel):
     ano: int | None = None
     descricao: str | None = None
 
-    class FilmeCreate(FilmeBase):
-        pass
+class FilmeCreate(FilmeBase):
+    pass
 
-    class FilmeResponse(FilmeBase):
-        id: int
+class FilmeResponse(FilmeBase):
+    id: int
 
-        class Config:
-            from_attributes = True
+    class Config:
+        from_attributes = True

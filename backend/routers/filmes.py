@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from database import get_db
-from backend import models
-from schemas import FilmeCreate, FilmeResponse
+
+from backend.database import SessionLocal
+from backend import models, schemas
 
 router = APIRouter(prefix="/filmes", tags=["Filmes"])

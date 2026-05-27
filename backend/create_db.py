@@ -1,5 +1,5 @@
-from database import Base, engine
-from models import Filme
+from backend.database import Base, engine
+from backend import models
 
 Base.metadata.create_all(bind=engine)
 
