@@ -2,10 +2,10 @@ $("form").on("submit", function(event) {
 
     event.preventDefault();
 
-    const titulo = $("#titulo").val();
+    const titulo = $("#tituloF").val();
     const genero = $("#genero").val();
     const status = $("#status").val();
-    const nota = $("#nota").val();
+    const nota = Number($("#nota").val());
 
     const filme = {
         titulo: titulo,
@@ -17,7 +17,7 @@ $("form").on("submit", function(event) {
     console.log(filme);
 
     $.ajax({
-        url: "http://127.0.0.1:8000/docs#/Filmes/criar_filme_filmes__post",
+        url: "http://localhost:8000/filmes",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(filme),
