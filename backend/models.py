@@ -13,10 +13,10 @@ class Filme(Base):
     status = Column(String, nullable=True)
     nota = Column(Float, nullable=True)
 
-    class Usuario(Base):
-        __tablename__ = "usuarios"
+class Usuario(Base):
+    __tablename__ = "usuarios"
 
-        id = Column(Integer, primary_key=True, index=True)
-        nome = Column(String(100), nullable=False)
-        email = Column(String(100), unique=True, nullable=False)
-        senha = Column(String(200), nullable=False)
+    id = Column(Integer, primary_key=True, index=True)
+    nome = Column(String(100), nullable=False)
+    email = Column(String(100), unique=True, nullable=False)
+    senha = Column(String(200), nullable=False)
