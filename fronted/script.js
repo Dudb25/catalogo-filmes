@@ -22,9 +22,17 @@ $("form").on("submit", function(event) {
         contentType: "application/json",
         data: JSON.stringify(filme),
 
-        success: function(resposta) {
-            console.log("Filme enviado com sucesso!");
-            console.log(resposta);
+       success: function(resposta) {
+            console.log("SUCESSO");
+            console.log("Resposta backend:", resposta);
+        },
+
+        error: function(erro) {
+            console.log("ERRO");
+
+            console.log(erro.status);
+
+            console.log(erro.responseText);
         },
 
         error: function(erro) {
