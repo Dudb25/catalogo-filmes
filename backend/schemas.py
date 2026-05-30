@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 
 class FilmeBase(BaseModel):
+    id: int | None = None
     titulo: str
     genero: str | None = None
     ano: int | None = None
