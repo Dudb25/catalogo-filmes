@@ -33,11 +33,6 @@ $("form").on("submit", function(event) {
             console.log(erro.status);
 
             console.log(erro.responseText);
-        },
-
-        error: function(erro) {
-            console.log("Erro ao enviar filme");
-            console.log(erro);
         }
     });
 
