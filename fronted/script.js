@@ -1,39 +1,44 @@
-$("form").on("submit", function(event) {
+console.log($("#form-filmes"));
+$(document).ready(function() {
+    $("#form-filmes").on("submit", function(event) {
 
-    event.preventDefault();
+        console.log("submit funcionando");
 
-    const titulo = $("#tituloF").val();
-    const genero = $("#genero").val();
-    const status = $("#status").val();
-    const nota = Number($("#nota").val());
+        event.preventDefault();
 
-    const filme = {
-        titulo: titulo,
-        genero: genero,
-        status: status,
-        nota: nota
-    };
+        const titulo = $("#tituloF").val();
+        const genero = $("#genero").val();
+        const status = $("#status").val();
+        const nota = Number($("#nota").val());
 
-    console.log(filme);
+        const filme = {
+            titulo: titulo,
+            genero: genero,
+            status: status,
+            nota: nota
+        };
 
-    $.ajax({
-        url: "http://localhost:8000/filmes/",
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(filme),
+        console.log(filme);
 
-        success: function(resposta) {
-            console.log("SUCESSO");
-            console.log("Resposta backend:", resposta);
-        },
+        $.ajax({
+            url: "http://localhost:8000/filmes/",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(filme),
 
-        error: function(erro) {
-            console.log("ERRO");
+            success: function(resposta) {
+                console.log("SUCESSO");
+                console.log("Resposta backend:", resposta);
+            },
 
-            console.log(erro.status);
+            error: function(erro) {
+                console.log("ERRO");
 
-            console.log(erro.responseText);
-        }
+                console.log(erro.status);
+
+                console.log(erro.responseText);
+            }
+        });
+
     });
-
-});
+});    
