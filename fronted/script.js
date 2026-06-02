@@ -1,10 +1,8 @@
 console.log($("#form-filmes"));
 $(document).ready(function() {
     $("#form-filmes").on("submit", function(event) {
-
-        console.log("submit funcionando");
-
         event.preventDefault();
+        console.log("submit funcionando");
 
         const titulo = $("#tituloF").val();
         const genero = $("#genero").val();
