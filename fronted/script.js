@@ -1,42 +1,44 @@
-console.log($("#form-filmes"));
-$(document).ready(function() {
-    $("#form-filmes").on("submit", function(event) {
-        event.preventDefault();
-        console.log("submit funcionando");
+$(document).ready(function () {
+  console.log("ready carregou");
 
-        const titulo = $("#tituloF").val();
-        const genero = $("#genero").val();
-        const status = $("#status").val();
-        const nota = Number($("#nota").val());
+  $("#form-filmes").on("submit", function (event) {
+    event.preventDefault();
 
-        const filme = {
-            titulo: titulo,
-            genero: genero,
-            status: status,
-            nota: nota
-        };
+    console.log("submit funcionando");
 
-        console.log(filme);
+    const titulo = $("#tituloF").val();
+    const genero = $("#genero").val();
+    const status = $("#status").val();
+    const nota = Number($("#nota").val());
 
-        $.ajax({
-            url: "http://localhost:8000/filmes/",
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(filme),
+    const filme = {
+      titulo: titulo,
+      genero: genero,
+      status: status,
+      nota: nota,
+    };
 
-            success: function(resposta) {
-                console.log("SUCESSO");
-                console.log("Resposta backend:", resposta);
-            },
+    console.log(filme);
 
-            error: function(erro) {
-                console.log("ERRO");
+    $.ajax({
+      url: "http://127.0.0.1:8000/filmes/",
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(filme),
 
-                console.log(erro.status);
+      success: function (resposta) {
+        console.log("SUCESSO");
 
-                console.log(erro.responseText);
-            }
-        });
+        console.log(resposta);
+      },
 
+      error: function (erro) {
+        console.log("ERRO");
+
+        console.log(erro.status);
+
+        console.log(erro.responseText);
+      },
     });
-});    
+  });
+});
