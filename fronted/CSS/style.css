@@ -76,19 +76,19 @@ main > aside > form > .item-form > input {
     background-color: #F6E9E9;
 }
 
-main > aside > form > .item-form#titulo {
+main > aside > form > .item-form#titulo-field {
     grid-row: 2;
 }
 
-main > aside > form > .item-form#genero {
+main > aside > form > .item-form#genero-field {
     grid-row: 3;
 }
 
-main > aside > form > .item-form#status {
+main > aside > form > .item-form#status-field {
     grid-row: 4;
 }
 
-main > aside > form > .item-form#nota {
+main > aside > form > .item-form#nota-field {
     grid-row: 5;
 }
 
@@ -124,7 +124,34 @@ section#sessao-de-filmes article {
     max-width: 700px;
 }
 
-section#sessao-de-filmes article > p {
+section#sessao-de-filmes article > div.card-filmes {
+    display: grid;
+    grid-template-columns: 1fr auto ;
+    grid-template-rows: 1fr;
     padding: 8px 10px;
     border: 1px solid #F6E9E9;
+}
+
+section#sessao-de-filmes article > div.card-filmes > .info-filmes {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    grid-row: 1;
+    align-self: center;
+}
+
+section#sessao-de-filmes article > div.card-filmes > div.icons {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+section#sessao-de-filmes article > div.card-filmes > div.icons > img {
+    height: 24px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid #F6E9E9;
+    cursor: pointer;
 }
