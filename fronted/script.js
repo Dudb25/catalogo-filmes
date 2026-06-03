@@ -24,7 +24,7 @@ function renderizarFilme(filme) {
 $(document).ready(function () {
   console.log('ready carregou');
 
-  $('#form-filmes').on('submit', function (event) {
+  $("button[type='submit']").on("click", function(event) {
     event.preventDefault();
 
     console.log('submit funcionando');
