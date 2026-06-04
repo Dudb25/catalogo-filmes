@@ -37,9 +37,9 @@ def atualizar_filme(filme_id: int, dados: schemas.FilmeCreate, db: Session = Dep
     for key, value in dados.model_dump().items():
         setattr(filme, key, value)
 
-        db.commit()
-        db.refresh(filme)
-        return filme
+    db.commit()
+    db.refresh(filme)
+    return filme
 
 @router.delete("/{filme_id}")
 def deletar_filme(filme_id: int, db: Session = Depends(get_db)):

@@ -1,12 +1,10 @@
 from pydantic import BaseModel
 
 class FilmeBase(BaseModel):
-    id: int | None = None
     titulo: str
     genero: str | None = None
     ano: int | None = None
-    status: str | None = None
-    nota: float | None = None
+    descricao: str | None = None
 
 class FilmeCreate(FilmeBase):
     pass
@@ -26,6 +24,18 @@ class UsuarioCreate(UsuarioBase):
     senha: str
 
 class UsuarioResponse(UsuarioBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+class UsuarioFilmeCreate(BaseModel):
+    usuario_id: int
+    filme_id: int
+    status: str | None = None
+    nota: float | None = None
+
+class UsuarioFilmeResponse(UsuarioFilmeCreate):
     id: int
 
     class Config:
