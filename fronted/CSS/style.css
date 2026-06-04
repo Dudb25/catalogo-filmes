@@ -156,3 +156,7 @@ section#sessao-de-filmes article > div.card-filmes > div.icons > img {
     border: 1px solid #F6E9E9;
     cursor: pointer;
 }
+
+body > #popup-excluir {
+    display: none;
+}
