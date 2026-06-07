@@ -159,4 +159,33 @@ section#sessao-de-filmes article > div.card-filmes > div.icons > img {
 
 body > #popup-excluir {
     display: none;
+    position: absolute;
+    background: #0f0000e3;
+    border: 1px solid #F6E9E9;
+    border-radius: 8px;
+    padding: 10px;
+    color: #F6E9E9;
+    z-index: 1000;
+    width: 180px;
+}
+
+body > #popup-excluir p {
+    margin-bottom: 10px;
+}
+
+
+body > #popup-excluir button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    cursor: pointer;
+    background: #F6E9E9;
+    letter-spacing: 2px;
+    color: #0F0000;
+    transition: all ease-in-out;
+}
+
+body > #popup-excluir button:hover {
+    background: #dbc9c9;
+
 }

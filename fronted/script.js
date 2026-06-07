@@ -14,12 +14,15 @@ function renderizarFilme(filme) {
   const lapis = $("<img>").addClass("pencil").attr("src", 'src/icons/pencil.svg');
   const lixeira = $("<img>").addClass("trash").attr("src", "src/icons/trash-alt.svg");
 
-  lixeira.on('click', function() {
-    $('#popup-excluir').show();
-
-    $('#popup-excluir').attr('data-filme-id', filme.id);
-
-  });
+  lixeira.on('click', function(event) {
+    const posicao = $(this).offset();
+    $('#popup-excluir').css({
+        top: posicao.top - 20,
+        left: posicao.left - 150
+      })
+      .attr('data-filme-id', filme.id)
+      .show();
+});
 
   icons.append(lapis, lixeira);
   card.append(infoFilmes);
