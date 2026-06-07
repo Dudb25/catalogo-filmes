@@ -35,3 +35,8 @@ def associar_filme_usuario(
     db.commit()
     db.refresh(nova_associacao)
     return nova_associacao
+
+@router.get("/", response_model=list[schemas.UsuarioFilmeResponse])
+def listar_associacoes(db: Session = Depends(get_db)):
+    associacoes = db.query(models.UsuarioFilme).all()
+    return associacoes
