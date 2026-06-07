@@ -1,6 +1,6 @@
 function renderizarFilme(filme) {
   const container = $("#container-cards");
-  const card = $("<div>").addClass("card-filmes").atrr('data-id', filme.id);
+  const card = $("<div>").addClass("card-filmes").attr('data-id', filme.id);
   const infoFilmes = $("<div>").addClass("info-filmes");
   const icons = $("<div>").addClass("icons");
 
@@ -41,13 +41,37 @@ function buscarFilmes() {
 
     error: function (erro) {
       console.log("Erro ao buscar filmes");
-      console.log("erro");
+      console.log(erro);
     },
   });
 }
 
 $(document).ready(function () {
   buscarFilmes();
+  $('#cancelar-excluir').on('click', function() {
+      $('#popup-excluir').hide();
+    });
+
+    $('#confirmar-excluir').on('click', function() {
+
+      const idFilme = $('#popup-excluir').attr('data-filme-id');
+
+      $.ajax({
+
+        url: `http://127.0.0.1:8000/filmes/${idFilme}`, 
+        method: 'DELETE', 
+        success: function() {
+          buscarFilmes();
+          $('#popup-excluir').hide();
+        },
+
+        error: function(erro) {
+          console.log(erro)
+        }
+
+      });
+
+    });
   // console.log("ready carregou");
 
   $("button[type='submit']").on("click", function (event) {
@@ -88,31 +112,5 @@ $(document).ready(function () {
         console.log(erro.responseText);
       },
     });
-
-    $('#cancelar-excluir').on('click', function() {
-      $('#popup-excluir').hide();
-    });
-
-    $('#confirmar-excluir').on('click', function() {
-
-      const idFilme = $('#popup-excluir').attr('data-filme-id');
-
-      $.ajax({
-
-        url: `http://127.0.0.1:8000/filmes/${idFilme}`, 
-        method: 'DELETE', 
-        success: function() {
-          buscarFilmes();
-          $('#popup-excluir').hide();
-        },
-
-        error: function(erro) {
-          console.log(erro)
-        }
-
-      });
-
-    });
-
   });
 });
