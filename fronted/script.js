@@ -11,7 +11,7 @@ function renderizarFilme(filme) {
     $("<p>").text(filme.nota),
   );
 
-  const lapis = $("<img>").addClass("pencil").attr("src", "src/icons/pencil.svg");
+  const lapis = $("<img>").addClass("pencil").attr("src", 'src/icons/pencil.svg');
   const lixeira = $("<img>").addClass("trash").attr("src", "src/icons/trash-alt.svg");
 
   lixeira.on('click', function() {
@@ -100,10 +100,13 @@ $(document).ready(function () {
       data: JSON.stringify(filme),
 
       success: function (resposta) {
-        console.log("SUCESSO");
+       console.log('SUCESSO');
 
-        // console.log(resposta);
-        renderizarFilme(resposta);
+       console.log('POST RESPOSTA:');
+
+       console.log(resposta);
+
+       buscarFilmes();
       },
 
       error: function (erro) {
