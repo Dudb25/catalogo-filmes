@@ -22,7 +22,22 @@ function renderizarFilme(filme) {
       })
       .attr('data-filme-id', filme.id)
       .show();
-});
+  });
+
+  lapis.on('click', function(event) {
+    const posicao = $(this).offset();
+
+    $('#popup-editar').css({
+      top: posicao.top - 20,
+      left: posicao.left - 180
+    }).show();
+
+    $('#popup-editar').attr('data-filme-id', filme.id);
+    $('#editar-titulo').val(filme.titulo);
+    $('#editar-genero').val(filme.genero);
+    $('#editar-status').val(filme.status);
+    $('#editar-nota').val(filme.nota);
+  });
 
   icons.append(lapis, lixeira);
   card.append(infoFilmes);
@@ -51,6 +66,41 @@ function buscarFilmes() {
 
 $(document).ready(function () {
   buscarFilmes();
+
+  $('#cancelar-edicao').on('click', function() {
+    $('#popup-editar').hide();
+  });
+
+  $('#confirmar-edicao').on('click', function() {
+    const idFilme = $('#popup-editar').attr('data-filme-id');
+    const filmeAtualizado = {
+      titulo: $('#editar-titulo').val(),
+      genero: $('#editar-genero').val(),
+      status: $('#editar-status').val(),
+      nota: Number($('#editar-nota').val())
+    };
+
+    $.ajax({
+      url: `http://127.0.0.1:8000/filmes/${idFilme}`,
+      method: 'PUT',
+      contentType: 'application/json',
+      data: JSON.stringify(filmeAtualizado),
+
+      success: function() {
+        buscarFilmes();
+        $('#popup-editar').hide();
+      },
+
+      error: function(erro) {
+        console.log(erro);
+      }
+
+    });
+
+  });
+
+
+
   $('#cancelar-excluir').on('click', function() {
       $('#popup-excluir').hide();
     });

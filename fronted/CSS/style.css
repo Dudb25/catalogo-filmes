@@ -189,3 +189,25 @@ body > #popup-excluir button:hover {
     background: #dbc9c9;
 
 }
+
+body > #popup-editar {
+    display: none;
+    position: absolute;
+    width: 220px;
+    padding: 12px;
+    background: #0F0000;
+    border: 1px solid #F6E9E9;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+body > #popup-editar input {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 5px;
+}
+
+body > #popup-editar button {
+    width: 100%;
+    margin-top: 5px;
+}
