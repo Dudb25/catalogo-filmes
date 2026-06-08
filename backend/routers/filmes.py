@@ -15,9 +15,11 @@ def criar_filme(filme: schemas.FilmeCreate, db: Session = Depends(get_db)):
     return novo_filme
 
 @router.get("/", response_model=list[schemas.FilmeBase])
-def listar_filmes(db: Session = Depends(get_db)):
-    filmes = db.query(models.Filme).all()
-    return filmes
+def listar_filmes(titulo: str |None = None, db: Session = Depends(get_db)):
+    query = db.query(models.Filme)
+    if titulo:
+        query = query.filter(models.Filme.titulo.ilike(f"%{titulo}%"))
+    return query.all()
 
 @router.get("/{filme_id}", response_model=schemas.FilmeBase)
 def obter_filme(filme_id: int, db: Session = Depends(get_db)):
@@ -37,9 +39,9 @@ def atualizar_filme(filme_id: int, dados: schemas.FilmeCreate, db: Session = Dep
     for key, value in dados.model_dump().items():
         setattr(filme, key, value)
 
-        db.commit()
-        db.refresh(filme)
-        return filme
+    db.commit()
+    db.refresh(filme)
+    return filme
 
 @router.delete("/{filme_id}")
 def deletar_filme(filme_id: int, db: Session = Depends(get_db)):
