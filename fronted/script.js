@@ -52,7 +52,7 @@ function buscarFilmes() {
 
     success: function (resposta) {
       $('#container-cards').empty(); //evita duplicar o filme
-      resposta.forEach(function(filme) {
+      resposta.data.forEach(function(filme) {
         renderizarFilme(filme);
       });
     },
