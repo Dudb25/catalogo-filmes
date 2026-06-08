@@ -40,3 +40,29 @@ class UsuarioFilmeResponse(UsuarioFilmeCreate):
 
     class Config:
         from_attributes = True
+
+class UsuarioResumo(BaseModel):
+    id: int
+    nome: str
+
+    class Config:
+        from_attributes = True
+
+class FilmeResumo(BaseModel):
+    id: int
+    titulo: str
+
+    class Config:
+        from_attributes = True
+
+class UsuarioFilmeDetalhado(BaseModel):
+
+    id: int
+    status: str | None = None
+    nota: float | None = None
+
+    usuario: UsuarioResumo
+    filme: FilmeResumo
+
+    class Config:
+        from_attributes = True

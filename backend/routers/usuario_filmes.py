@@ -37,6 +37,15 @@ def associar_filme_usuario(
     return nova_associacao
 
 @router.get("/", response_model=list[schemas.UsuarioFilmeResponse])
+
 def listar_associacoes(db: Session = Depends(get_db)):
+    
+    associacoes = db.query(models.UsuarioFilme).all()
+    return associacoes
+
+@router.get("/detalhado", response_model=list[schemas.UsuarioFilmeDetalhado])
+
+def listar_associacoes_detalhadas(db: Session = Depends(get_db)):
+
     associacoes = db.query(models.UsuarioFilme).all()
     return associacoes
