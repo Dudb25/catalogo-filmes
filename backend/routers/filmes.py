@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from backend.database import get_db
 from backend import models, schemas
 from backend.schemas import FilmeCreate, FilmeResponse
+import math
 
 router = APIRouter(prefix="/filmes", tags=["Filmes"])
 
@@ -14,12 +15,33 @@ def criar_filme(filme: schemas.FilmeCreate, db: Session = Depends(get_db)):
     db.refresh(novo_filme)
     return novo_filme
 
-@router.get("/", response_model=list[schemas.FilmeBase])
-def listar_filmes(titulo: str |None = None, db: Session = Depends(get_db)):
+@router.get("/")
+
+def listar_filmes(
+    titulo: str |None = None,
+    page: int = 1,
+    limit: int = 10,
+    db: Session = Depends(get_db)
+    ):
+
     query = db.query(models.Filme)
+
     if titulo:
         query = query.filter(models.Filme.titulo.ilike(f"%{titulo}%"))
-    return query.all()
+
+    total = query.count()
+    offset = (page - 1) * limit
+    filmes = query.offset(offset).limit(limit).all()
+    pages = math.ceil(total / limit)
+    
+    return {
+        "data": filmes,
+        "total": total,
+        "page": page,
+        "limit": limit,
+        "pages": pages
+    }
+
 
 @router.get("/{filme_id}", response_model=schemas.FilmeBase)
 def obter_filme(filme_id: int, db: Session = Depends(get_db)):
