@@ -26,7 +26,8 @@ class Usuario(Base):
 
     filmes = relationship(
         "UsuarioFilme",
-        back_populates="usuario"
+        back_populates="usuario",
+        cascade="all, delete-orphan"
     )
 
 class UsuarioFilme(Base):
