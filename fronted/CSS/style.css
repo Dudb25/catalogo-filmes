@@ -105,6 +105,12 @@ main > aside > form > button {
     border: none;
     margin-top: 3px;
     background-color: #F6E9E9;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+main > aside > form > button:hover {
+    background: #dbc9c9;
 }
 
 main > aside > form > button > span{
@@ -116,6 +122,7 @@ section#sessao-de-filmes {
     grid-row: 2;
     color: #F6E9E9;
     padding-left: 50px;
+    padding-bottom: 20px;
 }
 
 section#sessao-de-filmes article {
@@ -155,6 +162,11 @@ section#sessao-de-filmes article > div.card-filmes > div.icons > img {
     border-radius: 4px;
     border: 1px solid #F6E9E9;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+section#sessao-de-filmes article > div.card-filmes > div.icons > img:hover {
+    background: #3a2f2f;
 }
 
 body > #popup-excluir {
@@ -182,6 +194,8 @@ body > #popup-excluir button {
     background: #F6E9E9;
     letter-spacing: 2px;
     color: #0F0000;
+    padding: 10px 0;
+    border-radius: 8px;
     transition: all ease-in-out;
 }
 
@@ -205,11 +219,33 @@ body > #popup-editar input {
     width: 100%;
     margin-bottom: 8px;
     padding: 5px;
+    background: #F6E9E9;
+    border-radius: 8px;
+    border: none;
+    color: #0F0000;
+    font-size: 18px;
+}
+
+body > #popup-editar input::placeholder {
+    color: #745858;
+    
 }
 
 body > #popup-editar button {
     width: 100%;
+    padding: 10px 0;
     margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    background: #F6E9E9;
+    color: #0F0000;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+#popup-editar button:hover {
+    background: #dbc9c9;
+
 }
 
 #paginacao {
@@ -222,4 +258,29 @@ body > #popup-editar button {
 #paginacao button {
     padding: 6px 12px;
     cursor: pointer;
+    font-size: 20px;
+    background: #F6E9E9;
+    border: none;
+    border-radius: 50%;
+    transition: all .2s ease-in-out;
 }
+
+#paginacao button:hover {
+    background: #bca7a7;
+    color: #0F0000;
+}
+
+#buscar-filme {
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: none;
+    background: #F6E9E9;
+    color: #0F0000;
+    font-size: 18px;
+}
+
+#buscar-filme::placeholder {
+    color: #745858;
+} 

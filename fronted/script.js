@@ -1,4 +1,5 @@
 let paginaAtual = 1;
+let buscaAtual = '';
 
 function renderizarFilme(filme) {
   const container = $("#container-cards");
@@ -49,7 +50,7 @@ function renderizarFilme(filme) {
 
 function buscarFilmes() {
   $.ajax({
-    url: `http://127.0.0.1:8000/filmes/?page=${paginaAtual}&limit=10`,
+    url: `http://127.0.0.1:8000/filmes/?page=${paginaAtual}&limit=10&titulo=${buscaAtual}`,
     method: "GET",
 
     success: function (resposta) {
@@ -95,6 +96,14 @@ if(i === paginaAtual) {
 }
 
 $(document).ready(function () {
+
+  $('#buscar-filme').on('input', function() {
+    buscaAtual = $(this).val();
+    paginaAtual = 1;
+    buscarFilmes();
+  });
+
+
   buscarFilmes();
 
   $('#cancelar-edicao').on('click', function() {
