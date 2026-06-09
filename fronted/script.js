@@ -1,5 +1,3 @@
-let paginaAtual = 1;
-
 function renderizarFilme(filme) {
   const container = $("#container-cards");
   const card = $("<div>").addClass("card-filmes").attr('data-id', filme.id);
@@ -49,8 +47,7 @@ function renderizarFilme(filme) {
 
 function buscarFilmes() {
   $.ajax({
-    // url: "http://127.0.0.1:8000/filmes/",
-    url: `http://127.0.0.1:8000/filmes/?page=${paginaAtual}&limit=10`,
+    url: "http://127.0.0.1:8000/filmes/",
     method: "GET",
 
     success: function (resposta) {
@@ -58,41 +55,13 @@ function buscarFilmes() {
       resposta.data.forEach(function(filme) {
         renderizarFilme(filme);
       });
-
-      renderizarPaginacao(resposta.pages);
-
     },
 
     error: function (erro) {
-      // console.log("Erro ao buscar filmes");
+      console.log("Erro ao buscar filmes");
       console.log(erro);
     },
   });
-}
-
-function renderizarPaginacao(totalPaginas) {
-  $('#paginacao').empty();
-
-  for(let i = 1; i <= totalPaginas; i++) {
-    const botao = $('<button>')
-  .text(i);
-
-if(i === paginaAtual) {
-  botao.css({
-    background: '#F6E9E9',
-    color: '#0F0000'
-  });
-}
-
-  botao.on('click', function() {
-  paginaAtual = i;
-  buscarFilmes();
-
-    });
-
-    $('#paginacao').append(botao);
-
-  }
 }
 
 $(document).ready(function () {
@@ -145,15 +114,8 @@ $(document).ready(function () {
         url: `http://127.0.0.1:8000/filmes/${idFilme}`, 
         method: 'DELETE', 
         success: function() {
-
-          $('#popup-excluir').hide();
-
-          if($('#container-cards .card-filmes').length === 1 && paginaAtual > 1) {
-            paginaAtual--;
-          }
-
           buscarFilmes();
-
+          $('#popup-excluir').hide();
         },
 
         error: function(erro) {
@@ -197,7 +159,6 @@ $(document).ready(function () {
 
        console.log(resposta);
 
-       paginaAtual = 1;
        buscarFilmes();
       },
 
