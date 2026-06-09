@@ -79,7 +79,7 @@ if(i === paginaAtual) {
 }
 
   botao.on('click', function() {
-  paginaAtual = i; 
+  paginaAtual = i;
   buscarFilmes();
 
     });
