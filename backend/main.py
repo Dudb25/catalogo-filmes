@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from backend.database import Base, engine
-from backend.routers import users, filmes, usuario_filmes
+from backend.routers import users, filmes, usuario_filmes, auth
 from backend.database import SessionLocal
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -14,6 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(filmes.router)
 app.include_router(usuario_filmes.router)
