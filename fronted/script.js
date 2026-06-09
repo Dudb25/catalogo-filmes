@@ -64,6 +64,31 @@ function buscarFilmes() {
   });
 }
 
+function renderizarPaginacao(totalPaginas) {
+  $('#paginacao').empty();
+
+  for(let i = 1; i <= totalPaginas; i++) {
+    const botao = $('<button>')
+  .text(i);
+
+if(i === paginaAtual) {
+  botao.css({
+    background: '#F6E9E9',
+    color: '#0F0000'
+  });
+}
+
+  botao.on('click', function() {
+  paginaAtual = i; 
+  buscarFilmes();
+
+    });
+
+    $('#paginacao').append(botao);
+
+  }
+}
+
 $(document).ready(function () {
   buscarFilmes();
 
