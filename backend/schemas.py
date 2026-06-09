@@ -66,3 +66,12 @@ class UsuarioFilmeDetalhado(BaseModel):
 
     class Config:
         from_attributes = True
+
+class Login(BaseModel):
+    email: str
+    senha: str
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+    
