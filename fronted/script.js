@@ -1,3 +1,5 @@
+let paginaAtual = 1;
+
 function renderizarFilme(filme) {
   const container = $("#container-cards");
   const card = $("<div>").addClass("card-filmes").attr('data-id', filme.id);
@@ -47,15 +49,18 @@ function renderizarFilme(filme) {
 
 function buscarFilmes() {
   $.ajax({
-    url: "http://127.0.0.1:8000/filmes/",
+    url: `http://127.0.0.1:8000/filmes/?page=${paginaAtual}&limit=10`,
     method: "GET",
 
     success: function (resposta) {
-      $('#container-cards').empty(); //evita duplicar o filme
+      $('#container-cards').empty();
+
       resposta.data.forEach(function(filme) {
         renderizarFilme(filme);
       });
-    },
+
+      renderizarPaginacao(resposta.pages);
+},
 
     error: function (erro) {
       console.log("Erro ao buscar filmes");
@@ -139,6 +144,11 @@ $(document).ready(function () {
         url: `http://127.0.0.1:8000/filmes/${idFilme}`, 
         method: 'DELETE', 
         success: function() {
+
+          if ($('#container-cards .card-filmes').length === 1 && paginaAtual > 1) {
+            paginaAtual--;
+          }
+
           buscarFilmes();
           $('#popup-excluir').hide();
         },
@@ -178,13 +188,10 @@ $(document).ready(function () {
       data: JSON.stringify(filme),
 
       success: function (resposta) {
-       console.log('SUCESSO');
 
-       console.log('POST RESPOSTA:');
+        paginaAtual = 1;
 
-       console.log(resposta);
-
-       buscarFilmes();
+        buscarFilmes();
       },
 
       error: function (erro) {
