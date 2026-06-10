@@ -97,6 +97,11 @@ if(i === paginaAtual) {
 
 $(document).ready(function () {
 
+  $('#logout-btn').on('click', function() {
+    localStorage.removeItem('token');
+    window.location.href = '/login.html';
+  });
+
   $('#buscar-filme').on('input', function() {
     buscaAtual = $(this).val();
     paginaAtual = 1;

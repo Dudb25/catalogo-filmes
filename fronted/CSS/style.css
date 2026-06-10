@@ -16,10 +16,28 @@ header {
     border-bottom: 1px solid #F6E9E9;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 header > h1 {
     margin-left: 30px;
+}
+
+#logout-btn {
+    margin-right: 30px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #F6E9E9;
+    color: #0F0000;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all .2s ease-in-out;
+}
+
+#logout-btn:hover {
+    background: #dbc9c9;
 }
 
 main {
