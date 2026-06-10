@@ -16,7 +16,7 @@ body {
 body > main {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 120px auto;
+    grid-template-rows: 120px 200px;
     background: #0F0000;
     border: 1px solid #F6E9E9;
     border-radius: 5px;
@@ -47,10 +47,10 @@ body > main > form > button {
     background-color: #F6E9E9;
     
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 5px;
 }
 
-body > main > form > button > a {
+body > main > form > button {
     font-family: "Roboto Condensed", sans-serif;
     text-decoration: none;
     letter-spacing: 2px;
@@ -76,4 +76,12 @@ body > main div.input-field > input {
     border-radius: 8px;
     border: none;
     background: #F6E9E9;
+}
+
+#error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    min-height: 18px;
 }

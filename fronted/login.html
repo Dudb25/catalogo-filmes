@@ -15,19 +15,23 @@
 <body>
     <main id="form-container">
         <h1>Login</h1>
-        <form action="">
+        <form id="login-form" action="">
             <div class="input-field" id="login-field">
                 <label for="loginL">Login</label>
-                <input type="text" id="loginL">
+                <input type="email" id="loginL">
             </div>
             <div class="input-field" id="senha-field">
                 <label for="senhaL">Senha</label>
-                <input type="text" id="senhaL">
+                <input type="password" id="senhaL">
             </div>
-            <button type="submit">
-                <a href="">ENTRAR</a>
-            </button>
+
+            <div id="error-message"></div>
+
+            <button type="submit">ENTRAR</button>
         </form>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
