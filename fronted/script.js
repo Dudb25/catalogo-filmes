@@ -118,7 +118,17 @@ if(i === paginaAtual) {
   $('#paginacao').append(botaoProximo)
 }
 
+function mostrarToast(mensagem) {
+  $('#toast-mensagem').text(mensagem);
+  $('#toast').addClass('mostrar');
+  setTimeout(function() {
+    $('#toast').removeClass('mostrar');
+  }, 3000);
+}
+
 $(document).ready(function () {
+
+  
 
   $('#logout-btn').on('click', function() {
     localStorage.removeItem('token');
@@ -142,6 +152,11 @@ $(document).ready(function () {
 
 
   buscarFilmes();
+
+  // mostrarToast('Teste de toast');
+
+  // $('#toast').addClass('mostrar');
+  // $('#toast-mensagem').text('Teste do Toast');
 
   $('#cancelar-edicao').on('click', function() {
     $('#popup-editar').hide();
@@ -242,6 +257,7 @@ $(document).ready(function () {
         paginaAtual = 1;
 
         buscarFilmes();
+        mostrarToast('Filme cadastrado com sucesso!');
       },
 
       error: function (erro) {
