@@ -106,8 +106,8 @@ if(i === paginaAtual) {
 }
 
   botao.on('click', function() {
-  paginaAtual = i;
-  buscarFilmes();
+    paginaAtual = i;
+    buscarFilmes();
 
     });
 
@@ -130,6 +130,15 @@ $(document).ready(function () {
     paginaAtual = 1;
     buscarFilmes();
   });
+
+ $(document).on('keydown', function(event) {
+
+  if(event.key === 'Escape') {
+    $('#popup-excluir').hide();
+    $('#popup-editar').hide();
+    $('#overlay').hide();
+  }
+});
 
 
   buscarFilmes();
