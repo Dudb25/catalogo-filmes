@@ -57,6 +57,7 @@ function buscarFilmes() {
       $('#container-cards').empty();
 
       resposta.data.forEach(function(filme) {
+        console.log(filme);
         renderizarFilme(filme);
       });
 
@@ -72,6 +73,32 @@ function buscarFilmes() {
 
 function renderizarPaginacao(totalPaginas) {
   $('#paginacao').empty();
+
+  const botaoAnterior = $('<button>').addClass('btn-navegacao btn-anterior').text('← Anterior');
+
+  if(paginaAtual === 1) {
+    botaoAnterior.prop('disabled', true);
+  }
+
+  botaoAnterior.on('click', function(){
+    paginaAtual--;
+    buscarFilmes();
+  });
+  
+  $('#paginacao').append(botaoAnterior);
+
+  const botaoProximo = $('<button>').addClass('btn-navegacao btn-proximo').text('Próximo →');
+
+  if(paginaAtual === totalPaginas) {
+    botaoProximo.prop('disabled', true);
+  }
+ 
+  botaoProximo.on('click', function() {
+    paginaAtual++;
+    buscarFilmes();
+
+
+  });
 
   for(let i = 1; i <= totalPaginas; i++) {
     const botao = $('<button>')
@@ -93,6 +120,8 @@ if(i === paginaAtual) {
     $('#paginacao').append(botao);
 
   }
+
+  $('#paginacao').append(botaoProximo)
 }
 
 $(document).ready(function () {

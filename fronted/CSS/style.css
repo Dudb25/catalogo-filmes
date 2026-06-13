@@ -288,6 +288,12 @@ body > #popup-editar button {
     color: #0F0000;
 }
 
+#paginacao > .btn-navegacao {
+    padding: 5px;
+    border-radius: 0%;
+    border-radius: 10px;
+}
+
 #buscar-filme {
     width: 300px;
     padding: 8px;
@@ -302,3 +308,4 @@ body > #popup-editar button {
 #buscar-filme::placeholder {
     color: #745858;
 } 
+
