@@ -188,7 +188,7 @@ section#sessao-de-filmes article > div.card-filmes > div.icons > img:hover {
 }
 
 body > #popup-excluir {
-    display: none;
+    /* display: none;
     position: absolute;
     background: #0f0000e3;
     border: 1px solid #F6E9E9;
@@ -196,7 +196,19 @@ body > #popup-excluir {
     padding: 10px;
     color: #F6E9E9;
     z-index: 1000;
-    width: 180px;
+    width: 180px; */
+     display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #0F0000;
+    border: 1px solid #F6E9E9;
+    border-radius: 8px;
+    padding: 20px;
+    color: #F6E9E9;
+    width: 300px;
+    z-index: 1000;
 }
 
 body > #popup-excluir p {
@@ -224,9 +236,12 @@ body > #popup-excluir button:hover {
 
 body > #popup-editar {
     display: none;
-    position: absolute;
-    width: 220px;
-    padding: 12px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
     background: #0F0000;
     border: 1px solid #F6E9E9;
     border-radius: 8px;
@@ -309,3 +324,10 @@ body > #popup-editar button {
     color: #745858;
 } 
 
+#overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
