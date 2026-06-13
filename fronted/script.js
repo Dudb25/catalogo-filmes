@@ -18,22 +18,16 @@ function renderizarFilme(filme) {
   const lixeira = $("<img>").addClass("trash").attr("src", "src/icons/trash-alt.svg");
 
   lixeira.on('click', function(event) {
-    const posicao = $(this).offset();
-    $('#popup-excluir').css({
-        top: posicao.top - 20,
-        left: posicao.left - 150
-      })
-      .attr('data-filme-id', filme.id)
-      .show();
+     $('#popup-excluir').attr('data-filme-id', filme.id).show();
+
+     $('#overlay').show();
+
   });
 
   lapis.on('click', function(event) {
-    const posicao = $(this).offset();
+    $('#popup-editar').attr('data-filme-id', filme.id).show();
 
-    $('#popup-editar').css({
-      top: posicao.top - 20,
-      left: posicao.left - 180
-    }).show();
+    $('#overlay').show();
 
     $('#popup-editar').attr('data-filme-id', filme.id);
     $('#editar-titulo').val(filme.titulo);
@@ -142,6 +136,7 @@ $(document).ready(function () {
 
   $('#cancelar-edicao').on('click', function() {
     $('#popup-editar').hide();
+    $('#overlay').hide();
   });
 
   $('#confirmar-edicao').on('click', function() {
@@ -162,6 +157,7 @@ $(document).ready(function () {
       success: function() {
         buscarFilmes();
         $('#popup-editar').hide();
+        $('#overlay').hide()
       },
 
       error: function(erro) {
@@ -176,6 +172,7 @@ $(document).ready(function () {
 
   $('#cancelar-excluir').on('click', function() {
       $('#popup-excluir').hide();
+      $('#overlay').hide();
     });
 
     $('#confirmar-excluir').on('click', function() {
@@ -194,6 +191,7 @@ $(document).ready(function () {
 
           buscarFilmes();
           $('#popup-excluir').hide();
+          $('#overlay').hide();
         },
 
         error: function(erro) {
