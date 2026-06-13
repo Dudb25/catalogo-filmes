@@ -125,6 +125,7 @@ main > aside > form > button {
     background-color: #F6E9E9;
     cursor: pointer;
     transition: all .2s ease-in-out;
+    font-size: 17px;
 }
 
 main > aside > form > button:hover {
