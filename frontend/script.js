@@ -152,6 +152,9 @@ $(document).ready(function () {
 
 
   buscarFilmes();
+  $('#toast-fechar').on('click', function() {
+    $('#toast').removeClass('mostrar');
+  });
 
   // mostrarToast('Teste de toast');
 
@@ -181,7 +184,9 @@ $(document).ready(function () {
       success: function() {
         buscarFilmes();
         $('#popup-editar').hide();
-        $('#overlay').hide()
+        $('#overlay').hide();
+
+        mostrarToast('Filme editado com sucesso!');
       },
 
       error: function(erro) {
@@ -216,6 +221,8 @@ $(document).ready(function () {
           buscarFilmes();
           $('#popup-excluir').hide();
           $('#overlay').hide();
+
+          mostrarToast('Filme excluído com sucesso!');
         },
 
         error: function(erro) {

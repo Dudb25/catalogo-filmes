@@ -368,3 +368,7 @@ body > #popup-editar button {
     font-weight: bold;
     margin-left: 15px;
 }
+
+#toast-fechar:hover {
+    background: #745858;
+}
