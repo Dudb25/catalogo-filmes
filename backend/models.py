@@ -8,8 +8,8 @@ class Filme(Base):
     id = Column(Integer, primary_key=True, index=True)
     titulo = Column(String, nullable=False)
     genero = Column(String, nullable=True)
-    ano = Column(Integer, nullable=True)
-    descricao = Column(String, nullable=True)
+    nota = Column(Float, nullable=True)
+    status = Column(String, nullable=True)
 
     usuarios = relationship(
         "UsuarioFilme",
