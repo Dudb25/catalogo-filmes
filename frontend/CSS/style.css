@@ -160,12 +160,19 @@ section#sessao-de-filmes article > div.card-filmes {
 }
 
 section#sessao-de-filmes article > div.card-filmes > .info-filmes {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: wrap;
-    grid-row: 1;
-    align-self: center;
+     display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 0.5fr;
+    width: 100%;
+    align-items: center;
+}
+
+section#sessao-de-filmes article > div.card-filmes > .info-filmes > p {
+    border-right: 2px solid #F6E9E9;
+    margin-right: 10px;
+}
+
+section#sessao-de-filmes article > div.card-filmes > .info-filmes > p:nth-child(4) {
+    border: none;
 }
 
 section#sessao-de-filmes article > div.card-filmes > div.icons {
@@ -323,7 +330,7 @@ body > #popup-editar button {
 
 #buscar-filme::placeholder {
     color: #745858;
-} 
+}
 
 #overlay {
     display: none;
