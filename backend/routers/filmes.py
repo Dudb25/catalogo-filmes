@@ -4,11 +4,12 @@ from backend.database import get_db
 from backend import models, schemas
 from backend.schemas import FilmeCreate, FilmeResponse
 import math
+from backend.auth import verificar_token
 
 router = APIRouter(prefix="/filmes", tags=["Filmes"])
 
 @router.post("/", response_model= schemas.FilmeBase)
-def criar_filme(filme: schemas.FilmeCreate, db: Session = Depends(get_db)):
+def criar_filme(filme: schemas.FilmeCreate, db: Session = Depends(get_db), usuario = Depends(verificar_token)):
     novo_filme = models.Filme(**filme.model_dump())
     db.add(novo_filme)
     db.commit()
@@ -52,7 +53,7 @@ def obter_filme(filme_id: int, db: Session = Depends(get_db)):
     return filme
 
 @router.put("/{filme_id}", response_model=schemas.FilmeBase)
-def atualizar_filme(filme_id: int, dados: schemas.FilmeCreate, db: Session = Depends(get_db)):
+def atualizar_filme(filme_id: int, dados: schemas.FilmeCreate, db: Session = Depends(get_db), usuario = Depends(verificar_token)):
     filme = db.query(models.Filme).filter(models.Filme.id == filme_id).first()
 
     if not filme:
@@ -66,7 +67,7 @@ def atualizar_filme(filme_id: int, dados: schemas.FilmeCreate, db: Session = Dep
     return filme
 
 @router.delete("/{filme_id}")
-def deletar_filme(filme_id: int, db: Session = Depends(get_db)):
+def deletar_filme(filme_id: int, db: Session = Depends(get_db), usuario = Depends(verificar_token)):
     filme = db.query(models.Filme).filter(models.Filme.id == filme_id).first()
 
     if not filme:

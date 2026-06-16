@@ -2,11 +2,12 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from backend.database import get_db
 from backend import models, schemas
+from backend.auth import verificar_token
 
 router = APIRouter(prefix="/usuarios", tags=["Usuários"])
 
 @router.post("/", response_model=schemas.UsuarioResponse)
-def criar_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db)):
+def criar_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db), usuario_logado = Depends(verificar_token)):
 
     db_usuario = db.query(models.Usuario).filter(models.Usuario.email == usuario.email).first()
 
@@ -39,7 +40,7 @@ def buscar_usuario(usuario_id: int, db: Session = Depends(get_db)):
     return usuario
 
 @router.put("/{usuario_id}", response_model=schemas.UsuarioResponse)
-def atualizar_usuario(usuario_id: int, dados: schemas.UsuarioCreate, db: Session = Depends(get_db)):
+def atualizar_usuario(usuario_id: int, dados: schemas.UsuarioCreate, db: Session = Depends(get_db), usuario_logado = Depends(verificar_token)):
     usuario = db.query(models.Usuario).filter(models.Usuario.id == usuario_id).first()
 
     if not usuario:
@@ -56,7 +57,7 @@ def atualizar_usuario(usuario_id: int, dados: schemas.UsuarioCreate, db: Session
     return usuario
 
 @router.delete("/{usuario_id}")
-def deletar_usuario(usuario_id: int, db: Session = Depends(get_db)):
+def deletar_usuario(usuario_id: int, db: Session = Depends(get_db), usuario_logado = Depends(verificar_token)):
     usuario = db.query(models.Usuario).filter(models.Usuario.id == usuario_id).first()
 
     if not usuario:

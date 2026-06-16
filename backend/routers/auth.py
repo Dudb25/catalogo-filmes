@@ -4,7 +4,7 @@ from backend.database import get_db
 from backend import models, schemas
 from backend.auth import create_access_token
 
-router = APIRouter(tags=["Autenticação0"])
+router = APIRouter(tags=["Autenticação"])
 
 @router.post("/login", response_model=schemas.Token)
 def login(dados: schemas.Login, db: Session = Depends(get_db)):
