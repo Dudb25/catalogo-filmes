@@ -1,6 +1,8 @@
 let paginaAtual = 1;
 let buscaAtual = '';
 
+const token = localStorage.getItem('token');
+
 function renderizarFilme(filme) {
   const container = $("#container-cards");
   const card = $("<div>").addClass("card-filmes").attr('data-id', filme.id);
@@ -46,6 +48,10 @@ function buscarFilmes() {
   $.ajax({
     url: `http://127.0.0.1:8000/filmes/?page=${paginaAtual}&limit=10&titulo=${buscaAtual}`,
     method: "GET",
+
+    headers: {
+      Authorization: `Bearer ${token}`
+    }, 
 
     success: function (resposta) {
       $('#container-cards').empty();
@@ -179,6 +185,11 @@ $(document).ready(function () {
       url: `http://127.0.0.1:8000/filmes/${idFilme}`,
       method: 'PUT',
       contentType: 'application/json',
+
+      headers: {
+        Authorization: `Bearer ${token}`
+      }, 
+
       data: JSON.stringify(filmeAtualizado),
 
       success: function() {
@@ -212,6 +223,11 @@ $(document).ready(function () {
 
         url: `http://127.0.0.1:8000/filmes/${idFilme}`, 
         method: 'DELETE', 
+
+        headers: {
+          Authorization: `Bearer ${token}`
+        }, 
+
         success: function() {
 
           if ($('#container-cards .card-filmes').length === 1 && paginaAtual > 1) {
@@ -257,6 +273,10 @@ $(document).ready(function () {
       url: "http://127.0.0.1:8000/filmes/",
       method: "POST",
       contentType: "application/json",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }, 
+
       data: JSON.stringify(filme),
 
       success: function (resposta) {
