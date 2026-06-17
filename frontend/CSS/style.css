@@ -373,7 +373,9 @@ body > #popup-editar button {
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
+    padding: 3px 5px;
     margin-left: 15px;
+    border-radius: 8px;
 }
 
 #toast-fechar:hover {
