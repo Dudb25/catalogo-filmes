@@ -10,3 +10,7 @@ pip install fastapi uvicorn sqlalchemy
 rodar
 
 uvicorn main:app --reload 
+
+Usuário de teste:
+login: admin@email.com
+senha: 123456
