@@ -201,6 +201,12 @@ $(document).ready(function () {
       },
 
       error: function(erro) {
+
+        if(erro.status === 401) {
+          mostrarToast('Você precisa estar em uma conta para editar filmes.')
+          return;
+        }
+
         console.log(erro);
       }
 
@@ -242,6 +248,13 @@ $(document).ready(function () {
         },
 
         error: function(erro) {
+
+          if(erro.status === 401) {
+            mostrarToast('Você precisa estar em uma conta para excluir filmes');
+
+            return;
+          }
+
           console.log(erro)
         }
 
@@ -288,9 +301,14 @@ $(document).ready(function () {
       },
 
       error: function (erro) {
-        console.log("ERRO");
-        console.log(erro.status);
-        console.log(erro.responseText);
+
+         console.log("STATUS:", erro.status);
+         console.log("RESPOSTA:", erro.responseText);
+
+         if(erro.status === 401) {
+          mostrarToast('Você precisa estar em uma conta para cadastrar filmes.');
+          return;
+         }
       },
     });
   });
