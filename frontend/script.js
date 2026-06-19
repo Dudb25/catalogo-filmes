@@ -137,9 +137,28 @@ $(document).ready(function () {
   
 
   $('#logout-btn').on('click', function() {
+    // localStorage.removeItem('token');
+    // window.location.href = '/login.html';
+
+    $('#popup-logout').show();
+    $('#overlay').show();
+  });
+
+  $('#confirmar-logout').on('click', function() {
     localStorage.removeItem('token');
     window.location.href = '/login.html';
   });
+
+  $('#cancelar-logout').on('click', function() {
+      $('#popup-logout').hide();
+      $('#overlay').hide();
+  });
+
+  $('#fechar-logout').on('click', function() {
+      $('#popup-logout').hide();
+      $('#overlay').hide();
+  });
+
 
   $('#buscar-filme').on('input', function() {
     buscaAtual = $(this).val();
@@ -152,6 +171,7 @@ $(document).ready(function () {
   if(event.key === 'Escape') {
     $('#popup-excluir').hide();
     $('#popup-editar').hide();
+    $('#popup-logout').hide();
     $('#overlay').hide();
   }
 });
@@ -168,6 +188,11 @@ $(document).ready(function () {
   // $('#toast-mensagem').text('Teste do Toast');
 
   $('#cancelar-edicao').on('click', function() {
+    $('#popup-editar').hide();
+    $('#overlay').hide();
+  });
+
+  $('#fechar-edicao').on('click', function() {
     $('#popup-editar').hide();
     $('#overlay').hide();
   });
@@ -217,9 +242,14 @@ $(document).ready(function () {
 
 
   $('#cancelar-excluir').on('click', function() {
-      $('#popup-excluir').hide();
-      $('#overlay').hide();
-    });
+    $('#popup-excluir').hide();
+    $('#overlay').hide();
+  });
+
+  $('#fechar-excluir').on('click', function() {
+    $('#popup-excluir').hide();
+    $('#overlay').hide();
+  });  
 
     $('#confirmar-excluir').on('click', function() {
 
@@ -286,7 +316,7 @@ $(document).ready(function () {
       url: "http://127.0.0.1:8000/filmes/",
       method: "POST",
       contentType: "application/json",
-      headers: {
+      headers: { 
         Authorization: `Bearer ${token}`
       }, 
 
