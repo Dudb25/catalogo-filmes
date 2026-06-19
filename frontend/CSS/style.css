@@ -215,8 +215,27 @@ body > #popup-excluir {
     border-radius: 8px;
     padding: 20px;
     color: #F6E9E9;
-    width: 300px;
+    width: 400px;
     z-index: 1000;
+}
+
+body > #popup-excluir > #fechar-excluir {
+    position: absolute;
+    top: -25px;
+    right: -10px;    
+    background: none;
+    border: none;
+    color: #F6E9E9;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: red;
+    width: 30px;
+    transition: all .2s ease-in-out;
+}
+
+body > #popup-excluir > #fechar-excluir:hover {
+    background: rgb(132, 35, 35);
 }
 
 body > #popup-excluir p {
@@ -399,4 +418,60 @@ body > #popup-editar button {
 
 #toast-fechar:hover {
     background: #745858;
+}
+
+#popup-logout {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #0F0000;
+    border: 1px solid #F6E9E9;
+    border-radius: 8px;
+    padding: 20px;
+    color: #F6E9E9;
+    width: 450px;
+    z-index: 1000;
+}
+
+#popup-logout p {
+    margin-bottom: 15px;
+}
+
+#popup-logout #fechar-logout {
+    position: absolute;
+    top: -15px;
+    right: -10px;    
+    background: none;
+    border: none;
+    border-radius: 5px;
+    color: #F6E9E9;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: red;
+    width: 30px;
+    transition: all .2s ease-in-out;
+}
+
+#popup-logout #fechar-logout:hover {
+    background: rgb(132, 35, 35);
+}
+
+
+#popup-logout button:not(.btn-fechar-modal) {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px 0;
+    cursor: pointer;
+    background: #F6E9E9;
+    color: #0F0000;
+    border-radius: 8px;
+    border: none;
+    letter-spacing: 2px;
+}
+
+#popup-logout button:not(.btn-fechar-modal):hover {
+    background: #dbc9c9;
 }
