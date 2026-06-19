@@ -36,6 +36,7 @@ body > main > form {
     grid-row: 2;
     display: flex;
     flex-direction: column;
+    justify-self: center;
     gap: 20px;
 }
 
@@ -55,6 +56,11 @@ body > main > form > button {
     text-decoration: none;
     letter-spacing: 2px;
     color: #0F0000;
+}
+
+body > main > form > #inputs-container {
+    /* background: red; */
+    width: 300px;
 }
 
 body > main div.input-field {

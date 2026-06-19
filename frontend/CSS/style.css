@@ -248,12 +248,31 @@ body > #popup-editar {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 500px;
     padding: 20px;
     background: #0F0000;
     border: 1px solid #F6E9E9;
     border-radius: 8px;
     z-index: 1000;
+}
+
+body > #popup-editar >  #fechar-edicao {
+    position: absolute;
+    top: -25px;
+    right: -10px;    
+    background: none;
+    border: none;
+    color: #F6E9E9;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: red;
+    width: 30px;
+    transition: all .2s ease-in-out;
+}
+
+body > #popup-editar >  #fechar-edicao:hover {
+    background: rgb(132, 35, 35);
 }
 
 body > #popup-editar input {
