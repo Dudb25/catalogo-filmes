@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS/cadastro.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <title>Signin | Catálogo de Filmes</title>
+</head>
+<body>
+    <main id="form-container">
+        <h1>Criar conta</h1>
+        <form id="signin-form">
+            <div id="inputs-container">
+                <div class="input-field" id="login-field">
+                    <label for="emailL">E-mail</label>
+                    <input type="email" id="emailL" placeholder="Digite seu e-mail">
+                </div>
+                <div class="input-field" id="senha-field">
+                    <label for="senhaL">Senha</label>
+                    <input type="password" id="senhaL" placeholder="Digite uma senha">
+                </div>
+                <div class="input-field" id="confSenha-field">
+                    <label for="confSenhaL">Confirmar senha</label>
+                    <input type="password" id="confSenhaL" placeholder="Confirme sua senha">
+                </div>
+            </div>
+
+            <p id="go-login">
+                <a href="login.html">Já possuo uma conta</a>
+            </p>
+
+            <div id="error-message"></div>
+
+            <button type="submit">CONFIRMAR</button>
+        </form>
+    </main>
+</body>
+</html>

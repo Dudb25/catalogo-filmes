@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+body {
+    background: #0F0000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body > main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px 200px;
+    background: #0F0000;
+    border: 1px solid #F6E9E9;
+    border-radius: 5px;
+    width: 400px;
+    height: 500px;
+}
+
+body > main > h1 {
+    text-align: center;
+    align-self: center;
+    color: #F6E9E9;
+    letter-spacing: 1px;
+}
+
+body > main > form {
+    background: #0F0000;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 20px;
+}
+
+body > main > form > button {
+    align-self: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #F6E9E9;
+    
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+body > main > form > button {
+    font-family: "Roboto Condensed", sans-serif;
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: #0F0000;
+}
+
+body > main > form > #inputs-container {
+    /* background: red; */
+    width: 300px;
+}
+
+body > main div.input-field {
+    /* background: lightpink; */
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+body > main div.input-field > label {
+    color: #F6E9E9;
+    letter-spacing: 1px;
+}
+
+body > main div.input-field > input {
+    height: 30px;
+    max-width: 250px;
+    border-radius: 8px;
+    border: none;
+    background: #F6E9E9;
+    padding-left: 5px;
+}
+
+#go-login {
+    text-align: center;
+}
+
+#go-login a {
+    color: rgb(79, 79, 193);
+    letter-spacing: 2px;
+}
+
+#error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    min-height: 18px;
+}
