@@ -17,7 +17,10 @@ def criar_usuario(
     db_usuario = db.query(models.Usuario).filter(models.Usuario.email == usuario.email).first()
 
     if db_usuario:
-        raise HTTPException(status_code=400, detail="Email já cadastrado")
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Email ja esta em uso"
+        )
     
     novo_usuario = models.Usuario(
         nome = usuario.nome,
