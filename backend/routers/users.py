@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from backend.database import get_db
 from backend import models, schemas
-from backend.auth import verificar_token
+from backend.auth import hash_password, verificar_token
 
 router = APIRouter(prefix="/usuarios", tags=["Usuários"])
 
@@ -17,7 +17,7 @@ def criar_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db),
     novo_usuario = models.Usuario(
         nome = usuario.nome,
         email = usuario.email, 
-        senha = usuario.senha
+        senha = hash_password(usuario.senha)
     )
 
     db.add(novo_usuario)
@@ -49,7 +49,7 @@ def atualizar_usuario(usuario_id: int, dados: schemas.UsuarioCreate, db: Session
     
     usuario.nome = dados.nome
     usuario.email = dados.email
-    usuario.senha = dados.senha
+    usuario.senha = hash_password(dados.senha)
 
     db.commit()
     db.refresh(usuario)
