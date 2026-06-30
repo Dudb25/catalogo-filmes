@@ -17,3 +17,18 @@ senha: 123456
 
 As senhas sao armazenadas com hash bcrypt. Apos atualizar esta versao,
 recrie o banco ou atualize usuarios antigos que ainda tenham senha em texto puro.
+
+Envio de email de boas-vindas:
+
+O cadastro em POST /usuarios envia um email usando SMTP. Configure as variaveis
+de ambiente antes de iniciar a API:
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=seu-email@gmail.com
+SMTP_PASSWORD=sua-senha-de-app
+SMTP_FROM=seu-email@gmail.com
+
+No Gmail, ative a verificacao em duas etapas e crie uma senha de app em
+Conta Google > Seguranca > Senhas de app. Use essa senha em SMTP_PASSWORD,
+em vez da senha normal da conta.
