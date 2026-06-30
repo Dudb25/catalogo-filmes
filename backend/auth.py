@@ -2,11 +2,23 @@ from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException, status, Depends
+from passlib.context import CryptContext
+from passlib.exc import UnknownHashError
 
 SECRET_KEY = "chave_secreta"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+pwd_context = CryptContext(schemes=["bcrypt"])
+
+def hash_password(senha: str):
+    return pwd_context.hash(senha)
+
+def verify_password(senha: str, senha_hash: str):
+    try:
+        return pwd_context.verify(senha, senha_hash)
+    except UnknownHashError:
+        return False
 
 def create_access_token(data: dict):
     to_encode = data.copy()
