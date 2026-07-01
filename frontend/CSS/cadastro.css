@@ -102,3 +102,45 @@ body > main div.input-field > input {
     margin-top: 10px;
     min-height: 18px;
 }
+
+#toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    min-width: 300px;
+    max-width: 400px;
+    padding: 15px 20px;
+    background: #F6E9E9;
+    color: #0F0000;
+    border-radius: 8px;
+    z-index: 5000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all .3s ease;
+}
+
+#toast.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
+
+#toast-fechar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 15px;
+    padding: 3px 6px;
+    border-radius: 8px;
+}
+
+#toast-fechar:hover {
+    background: #745858;
+}
