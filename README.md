@@ -15,9 +15,6 @@ Usuário de teste:
 login: admin@email.com
 senha: 123456
 
-As senhas sao armazenadas com hash bcrypt. Apos atualizar esta versao,
-recrie o banco ou atualize usuarios antigos que ainda tenham senha em texto puro.
-
 Envio de email de boas-vindas:
 
 O cadastro em POST /usuarios envia um email usando SMTP. Configure as variaveis
