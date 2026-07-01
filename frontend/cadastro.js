@@ -54,7 +54,7 @@ $(document).ready(function () {
         botao.text('CADASTRANDO...');
 
         $.ajax({
-            url: 'http://127.0.0.1:8000/usuarios',
+            url: 'https://catalogo-filmes-fc6x.onrender.com/usuarios',
             method: 'POST',
             contentType: 'application/json',
 

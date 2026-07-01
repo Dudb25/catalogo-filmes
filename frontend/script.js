@@ -46,7 +46,7 @@ function renderizarFilme(filme) {
 
 function buscarFilmes() {
   $.ajax({
-    url: `http://127.0.0.1:8000/filmes/?page=${paginaAtual}&limit=10&titulo=${buscaAtual}`,
+    url: `https://catalogo-filmes-fc6x.onrender.com/filmes/?page=${paginaAtual}&limit=10&titulo=${buscaAtual}`,
     method: "GET",
 
     headers: {
@@ -207,7 +207,7 @@ $(document).ready(function () {
     };
 
     $.ajax({
-      url: `http://127.0.0.1:8000/filmes/${idFilme}`,
+      url: `https://catalogo-filmes-fc6x.onrender.com/filmes/${idFilme}`,
       method: 'PUT',
       contentType: 'application/json',
 
@@ -257,7 +257,7 @@ $(document).ready(function () {
 
       $.ajax({
 
-        url: `http://127.0.0.1:8000/filmes/${idFilme}`, 
+        url: `https://catalogo-filmes-fc6x.onrender.com/filmes/${idFilme}`, 
         method: 'DELETE', 
 
         headers: {
@@ -313,7 +313,7 @@ $(document).ready(function () {
     console.log(filme);
 
     $.ajax({
-      url: "http://127.0.0.1:8000/filmes/",
+      url: "https://catalogo-filmes-fc6x.onrender.com/filmes/",
       method: "POST",
       contentType: "application/json",
       headers: { 
