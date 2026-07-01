@@ -25,6 +25,13 @@ def _email_config() -> dict[str, str | int | None]:
 
 
 def enviar_email_boas_vindas(nome: str, email_destino: str) -> None:
+    try:
+        _enviar_email_boas_vindas(nome, email_destino)
+    except Exception as erro:
+        print(f"Email de boas-vindas nao enviado: {erro}")
+
+
+def _enviar_email_boas_vindas(nome: str, email_destino: str) -> None:
     config = _email_config()
 
     if not config["user"] or not config["password"] or not config["from"]:
